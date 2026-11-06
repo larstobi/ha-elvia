@@ -49,7 +49,7 @@ class ElviaDataUpdateCoordinator(DataUpdateCoordinator):
         self.device_info = tariffType
 
         self._attr_device_info = DeviceInfo(
-            name=self.device_info.title,
+            name="Elvia Grid Tariff",
             manufacturer=self.device_info.companyName,
             model=self.device_info.tariffKey,
             identifiers={(DOMAIN, self.api._metering_point_id)},
