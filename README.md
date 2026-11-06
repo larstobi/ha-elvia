@@ -22,7 +22,7 @@ HomeAssistant-integration for Elvia
    2. Add this repository as a custom repository
    3. Search for and install the "Elvia" integration.
    4. Restart Home Assistant.
-   5. Add the `Elvia` integration to HA from the integration-page
+   5. Add the `Elvia Grid Tariff` integration to HA from the integration-page
 </details>
 
 <details>
@@ -30,13 +30,29 @@ HomeAssistant-integration for Elvia
 
    1. Download the `Source code (zip)` file from the
       [latest release](https://github.com/sindrebroch/ha-elvia/releases/latest).
-   2. Unpack the release and copy the `custom_components/elvia` directory
+   2. Unpack the release and copy the `custom_components/elvia_grid_tariff` directory
       into the `custom_components` directory of your Home Assistant
       installation.
    3. Restart Home Assistant.
-   4. Add the `Elvia` integration to HA from the integration-page
+   4. Add the `Elvia Grid Tariff` integration to HA from the integration-page
 </details>
 
+
+## Upgrading from the `elvia` custom integration
+
+The integration now uses the `elvia_grid_tariff` domain so it can coexist with
+Home Assistant's built-in Elvia integration. Existing configuration entries do
+not automatically move between domains. Before upgrading, back up Home Assistant
+and note your API key, token, metering point ID, and existing sensor entity IDs.
+
+Remove the old custom Elvia integration and its `custom_components/elvia` directory,
+install the new version, restart Home Assistant, and add **Elvia Grid Tariff**
+using your saved credentials. Do not remove the built-in Elvia integration if you
+use it. Check that the new sensors have their previous entity IDs; if necessary,
+rename them in the entity settings after removing the old entities. Recorder
+history is associated with entity IDs, so retaining those IDs allows existing
+history to remain accessible. Entity settings and device assignments must be
+checked after reconfiguration; they are not automatically migrated.
 
 ## Sensors
 - Energy price
@@ -64,7 +80,7 @@ If something is not working properly, logs might help with debugging. To turn on
 logger:
   default: info
   logs:
-    custom_components.elvia: debug
+    custom_components.elvia_grid_tariff: debug
 ```
 
 ## API limitations

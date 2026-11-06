@@ -8,9 +8,9 @@ from typing import Any
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 
-from custom_components.elvia.const import DOMAIN
-from custom_components.elvia.coordinator import ElviaDataUpdateCoordinator
-from custom_components.elvia.models import GridTariffCollection
+from custom_components.elvia_grid_tariff.const import DOMAIN
+from custom_components.elvia_grid_tariff.coordinator import ElviaDataUpdateCoordinator
+from custom_components.elvia_grid_tariff.models import GridTariffCollection
 
 
 async def async_get_config_entry_diagnostics(
